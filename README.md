@@ -13,7 +13,7 @@ image:
 ```
   hosts:
       # check your route53 hosted zone before adding your name below
-    - host: py-test.sb2.ci.sportsbook.app.geniussports.com
+    - host: <AddHereYourAddress>
 ```
 
 ### Build it:
