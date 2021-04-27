@@ -3,24 +3,29 @@
 ## This is a helm chart that builds a simple python app in Kubernetes
 
 ### Requirements:
+* Define the following Variables in the file `variables_global`:
+  - APP_NAME
+  - ACCOUNT_ID
+  - AWS_REGION
+
 * Add the ecr image on `values.yaml` file:
 ```
 image:
-  repository: <YourECRRepositoryImage>
+  repository: <ECRImage>
 ```
 
 * Add a host name for the ingress object:
 ```
   hosts:
       # check your route53 hosted zone before adding your name below
-    - host: <AddHereYourAddress>
+    - host: <IngressAddress>
 ```
 
 ### Build it:
-* helm upgrade -i python-chart . --namespace default
+* make deploy
 
 ### Delete the chart
-* helm delete --purge python-chart
+* helm delete --purge <ChartName>
 
 ### Versions used:
 * helm client version: v2.16.12

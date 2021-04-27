@@ -5,7 +5,7 @@
 replicaCount: 3
 
 image:
-  repository: <YourECRRepositoryImage>
+  repository: <ECRImage>
   tag: latest
   pullPolicy: IfNotPresent
 
@@ -18,7 +18,7 @@ serviceAccount:
   create: true
   # The name of the service account to use.
   # If not set and create is true, a name is generated using the fullname template
-  name: "py-test"
+  name: ""
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -43,7 +43,7 @@ ingress:
      traefik.ingress.kubernetes.io/frontend-entry-points: httpn
   hosts:
       # check your route53 hosted zone before adding your name below
-    - host: <YourAppAddress>
+    - host: <IngressAddress>
       paths: 
        - /
   tls: []
