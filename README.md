@@ -8,13 +8,13 @@
   - ACCOUNT_ID
   - AWS_REGION
 
-* Add the ecr image on [values.yaml](https://github.com/nandonespolo/python-chart-test/blob/python-chart/python-chart/values.yaml) file:
+* Add the ecr repository [image](https://github.com/nandonespolo/python-chart-test/blob/python-chart/python-chart/values.yaml#L8) file:
 ```
 image:
   repository: <ECRImage>
 ```
 
-* Add a host name for the ingress object:
+* Add a [host](https://github.com/nandonespolo/python-chart-test/blob/python-chart/python-chart/values.yaml#L46) name for the ingress object:
 ```
   hosts:
       # check your route53 hosted zone before adding your name below
