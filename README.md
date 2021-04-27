@@ -8,7 +8,7 @@
   - ACCOUNT_ID
   - AWS_REGION
 
-* Add the ecr image on `values.yaml` file:
+* Add the ecr image on [values.yaml](https://github.com/nandonespolo/python-chart-test/blob/python-chart/python-chart/values.yaml) file:
 ```
 image:
   repository: <ECRImage>
