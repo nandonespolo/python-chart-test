@@ -28,6 +28,5 @@ image:
 * helm delete --purge <ChartName>
 
 ### Versions used:
-* helm client version: v2.16.12
-* helm server version: v2.16.6
-* kubernetes 1.16
+* helm version: v3.5.4
+* kubernetes 1.18

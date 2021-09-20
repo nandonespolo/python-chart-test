@@ -14,16 +14,16 @@ then
 fi
 
 # tag docker image
-docker tag "${APP_NAME}" "${ACCOUNT_ID}".dkr.ecr."${AWS_REGION}".amazonaws.com/"${APP_NAME}"
+docker tag "${APP_NAME}":latest "${ACCOUNT_ID}".dkr.ecr."${AWS_REGION}".amazonaws.com/"${APP_NAME}":latest
 
 # login to AWS ECR
-aws ecr get-login-password | docker login -u AWS --password-stdin https://"${ACCOUNT_ID}".dkr.ecr."${AWS_REGION}".amazonaws.com/"${APP_NAME}"
+aws ecr get-login-password --region "${AWS_REGION}" | docker login --username AWS --password-stdin "${ACCOUNT_ID}".dkr.ecr."${AWS_REGION}".amazonaws.com
 
 # push image to AWS ECR
-docker push "${ACCOUNT_ID}".dkr.ecr."${AWS_REGION}".amazonaws.com/"${APP_NAME}"
+docker push "${ACCOUNT_ID}".dkr.ecr."${AWS_REGION}".amazonaws.com/"${APP_NAME}":latest
 
 # run the container locally
 # docker run -td -p 5000:5000 --name "${APP_NAME}" "${APP_NAME}"
 
 # deploy the app to kubernetes using the helm chart
-helm upgrade -i "${APP_NAME}" python-chart --namespace default
+helm3 upgrade -i "${APP_NAME}" python-chart --namespace default
